@@ -25,3 +25,9 @@ class AuthOrAppPage extends StatelessWidget {
     ));
   }
 }
+
+/*
+construtores factory é possivel retornar uma subclasse da classe que chama o construtor
+sem que ninguem saiba. é possivel retornar as implementacoes e nao a interface
+que nesse caso é de como seria a interface de como seria um servico de autenticacao
+*/
