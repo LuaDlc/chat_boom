@@ -1,4 +1,3 @@
-import 'package:chat/pages/auth_page.dart';
 import 'package:flutter/material.dart';
 
 import 'pages/auth_or_app_page.dart';

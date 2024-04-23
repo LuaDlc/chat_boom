@@ -1,5 +1,6 @@
 import 'package:chat/core/models/chat_user.dart';
 import 'package:chat/core/models/services/auth/auth_mock_service.dart';
+import 'package:chat/core/models/services/auth/auth_service.dart';
 import 'package:chat/pages/auth_page.dart';
 import 'package:chat/pages/chat_page.dart';
 import 'package:chat/pages/loading_page.dart';
@@ -13,7 +14,7 @@ class AuthOrAppPage extends StatelessWidget {
     return Scaffold(
         //sempre que chamar o controller pra adicionar novo user ele vai ser notificado e com a stream escolher qual tela vai
         body: StreamBuilder<ChatUser?>(
-      stream: AuthMockService().userChanges,
+      stream: AuthService().userChanges,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingPage();
