@@ -7,32 +7,7 @@ import 'package:chat/core/models/services/auth/chat/chat_service.dart';
 
 class ChatMockService implements ChatService {
   //lista static
-  static final List<ChatMessage> _msgs = [
-    ChatMessage(
-      id: '1',
-      text: 'Bom dia',
-      createdAt: DateTime.now(),
-      userId: '123',
-      userName: 'Bia',
-      userImageURL: "assets/images/avatar.png",
-    ),
-    ChatMessage(
-      id: '2',
-      text: 'Bom dia, teremos reuniao hoje?',
-      createdAt: DateTime.now(),
-      userId: '456',
-      userName: 'Ana',
-      userImageURL: "assets/images/avatar.png",
-    ),
-    ChatMessage(
-      id: '1',
-      text: 'Sim. Pode ser agora.',
-      createdAt: DateTime.now(),
-      userId: '123',
-      userName: 'Bia',
-      userImageURL: "assets/images/avatar.png",
-    )
-  ];
+  static final List<ChatMessage> _msgs = [];
   //controller pra criar e salvar nova msg
   static MultiStreamController<List<ChatMessage>>? _controller;
   //stream de dados
@@ -56,7 +31,9 @@ class ChatMockService implements ChatService {
       userImageURL: user.imageUrl,
     );
     _msgs.add(newMessage);
-    _controller?.add(_msgs);
+    _controller?.add(_msgs.reversed
+        .toList()); //altera a ordem das mensagens, adicionando a ultima no
+    //final da lista de mensagens
     return newMessage;
   }
 }
