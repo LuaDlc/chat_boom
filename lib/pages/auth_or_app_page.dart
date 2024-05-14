@@ -4,24 +4,38 @@ import 'package:chat/pages/auth_page.dart';
 import 'package:chat/pages/chat_page.dart';
 import 'package:chat/pages/loading_page.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({super.key});
 
+  Future<void> init(BuildContext context) async {
+    Firebase.initializeApp();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return
         //sempre que chamar o controller pra adicionar novo user ele vai ser notificado e com a stream escolher qual tela vai
-        body: StreamBuilder<ChatUser?>(
-      stream: AuthService().userChanges,
+        FutureBuilder(
+      future: init(context),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const LoadingPage();
         } else {
-          return snapshot.hasData ? const ChatPage() : const AuthPage();
+          return StreamBuilder<ChatUser?>(
+            stream: AuthService().userChanges,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const LoadingPage();
+              } else {
+                return snapshot.hasData ? const ChatPage() : const AuthPage();
+              }
+            },
+          );
         }
       },
-    ));
+    );
   }
 }
 

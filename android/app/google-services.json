@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1029402158884",
+    "project_id": "chat-boom-73b73",
+    "storage_bucket": "chat-boom-73b73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1029402158884:android:b179144f2e46446ae8b5b1",
+        "android_client_info": {
+          "package_name": "br.com.chatboom"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhOJ64WrDviIRtF8d4wVovw5xhdxkjJXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -25,3 +25,5 @@ class NotificationPage extends StatelessWidget {
         ));
   }
 }
+//adicionar arquivo baixado perto de info.plist direto no xcode
+//
