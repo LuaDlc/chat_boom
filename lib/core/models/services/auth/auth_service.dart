@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:chat/core/models/chat_user.dart';
-import 'package:chat/core/models/services/auth/auth_mock_service.dart';
+import 'package:chat/core/models/services/auth/auth_firebase_service.dart';
 
 abstract class AuthService {
   ChatUser? get currentUser;
@@ -24,6 +24,6 @@ abstract class AuthService {
 //vantagem do factory: nao precisa retornar uma instancia da classe, por ser abstrata, mas pode instanciar implementacoes
   factory AuthService() {
     //classe generica
-    return AuthMockService(); //implementacao
+    return AuthFirebaseService(); //implementacao
   }
 }
