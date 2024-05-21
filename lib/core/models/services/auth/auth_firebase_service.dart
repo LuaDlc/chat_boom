@@ -24,6 +24,9 @@ class AuthFirebaseService implements AuthService {
     return _userStream;
   } //sempre que mudar o estado do usuario lanca um novo dado no estado do usuario
 
+
+  @override
+  Future<void>newFunction() {};
   @override
   Future<void> signup(
     String name,
