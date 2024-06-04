@@ -24,9 +24,6 @@ class AuthFirebaseService implements AuthService {
     return _userStream;
   } //sempre que mudar o estado do usuario lanca um novo dado no estado do usuario
 
-
-  @override
-  Future<void>newFunction() {};
   @override
   Future<void> signup(
     String name,
@@ -49,7 +46,12 @@ class AuthFirebaseService implements AuthService {
   Future<void> login(
     String email,
     String password,
-  ) async {}
+  ) async {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
 
   @override
   Future<void> logout() async {
