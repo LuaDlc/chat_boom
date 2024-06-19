@@ -4,13 +4,13 @@ import 'package:chat/pages/auth_page.dart';
 import 'package:chat/pages/chat_page.dart';
 import 'package:chat/pages/loading_page.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 class AuthOrAppPage extends StatelessWidget {
   const AuthOrAppPage({super.key});
 
   Future<void> init(BuildContext context) async {
-    Firebase.initializeApp();
+    WidgetsFlutterBinding.ensureInitialized(); //serve para garantir que
+    //os widgets estejam inicializados antes de executar o restante do codigo??
   }
 
   @override
