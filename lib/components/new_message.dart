@@ -32,12 +32,12 @@ class _NewMessageState extends State<NewMessage> {
             controller: _messageController,
             //onCHanged altera o valor da mensagem
             onChanged: (msg) => setState(() => _message = msg),
-            // onSubmitted: (_) {
-            //   //outra forma de cadastrar a mensagem
-            //   if (_message.trim().isNotEmpty) {
-            //     _sendMessage();
-            //   }
-            // },
+            onSubmitted: (_) {
+              //outra forma de cadastrar a mensagem
+              if (_message.trim().isNotEmpty) {
+                _sendMessage();
+              }
+            },
             decoration: const InputDecoration(
               labelText: 'Enviar mensagem',
             ),
