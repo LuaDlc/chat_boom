@@ -7,7 +7,7 @@ abstract class ChatService {
 //metodo que consultar os dados
   Stream<List<ChatMessage>> messagesStream();
   //metodo pra salvar o chat
-  Future<ChatMessage> save(String text, ChatUser user);
+  Future<ChatMessage?> save(String text, ChatUser user);
 
   factory ChatService() {
     return ChatFirebaseService();
